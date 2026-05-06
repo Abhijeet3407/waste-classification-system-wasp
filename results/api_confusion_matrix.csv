@@ -1,0 +1,10 @@
+,cardboard,glass,metal,paper,plastic,trash,organic,e-waste,hazardous
+cardboard,57,1,0,2,1,0,0,0,0
+glass,0,81,4,1,2,6,0,0,2
+metal,0,2,90,0,2,1,0,0,7
+paper,2,0,1,89,3,6,2,0,4
+plastic,0,6,2,0,90,8,2,0,4
+trash,0,1,5,3,5,65,5,2,11
+organic,0,0,0,1,1,6,84,2,7
+e-waste,0,2,0,0,0,1,1,76,1
+hazardous,0,1,1,0,1,7,1,2,47

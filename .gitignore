@@ -1,0 +1,54 @@
+# ── Python ────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+
+# ── Virtual environment ───────────────────────────────────────────────
+venv/
+env/
+.venv/
+.env
+
+# ── Data — raw images and processed numpy arrays (too large for git) ──
+data/raw/
+data/processed/
+data/augmented/
+
+# ── Trained models (large binary files) ──────────────────────────────
+models/final/*.keras
+models/checkpoints/*.keras
+
+# ── Uploads (user-submitted images) ──────────────────────────────────
+uploads/
+
+# ── Large verbose training logs (keep CSV summaries) ─────────────────
+logs/*.log
+logs/*/
+
+# ── Results images ────────────────────────────────────────────────────
+results/*.png
+
+# ── Jupyter ───────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── macOS ─────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+
+# ── IDE ───────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Secrets ───────────────────────────────────────────────────────────
+.env
+*.pem
+*.key
