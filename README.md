@@ -1,6 +1,6 @@
 # WASP — Waste Analysis & Sorting Platform
 
-A deep learning system that classifies waste images into 9 categories using EfficientNetB0 with transfer learning, achieving **92.3% validation accuracy**. Includes a Flask REST API, drag-and-drop web interface, Grad-CAM explainability, and a systematic API test suite.
+A deep learning system that classifies waste images into 9 categories using EfficientNetB0 with transfer learning, achieving **93.65% test accuracy**. Includes a Flask REST API, drag-and-drop web interface, Grad-CAM explainability, and a systematic API test suite.
 
 ---
 
@@ -18,11 +18,12 @@ A deep learning system that classifies waste images into 9 categories using Effi
 
 | Metric | Value |
 |---|---|
-| Validation Accuracy (full run) | 92.3% |
-| Test Accuracy (programmatic) | 83.23% |
-| Test Accuracy (API — 817 images) | 83.11% |
-| Strongest class | Cardboard (96.6% precision) |
-| Weakest class | Hazardous (56.6% precision) |
+| Test Accuracy | 93.65% |
+| Top-3 Accuracy | 98.94% |
+| Test Loss | 0.2265 |
+| Test Set Size | 756 images (9 classes) |
+| Strongest class | Cardboard (98.3% F1) |
+| Weakest class | Hazardous (88.5% F1) |
 
 ---
 
@@ -33,7 +34,6 @@ A deep learning system that classifies waste images into 9 categories using Effi
 ├── config.py               # All hyperparameters and settings
 ├── train_fixed.py          # Two-phase EfficientNetB0 training (recommended)
 ├── train/train.py          # General training pipeline
-├── resume_training.py      # Resume from checkpoint
 ├── predict/
 │   ├── predict.py          # Inference pipeline
 │   └── explainability.py   # Grad-CAM visualisation
@@ -45,9 +45,8 @@ A deep learning system that classifies waste images into 9 categories using Effi
 ├── merge_data.py           # Merge new datasets with duplicate detection
 ├── download_dataset.py     # Dataset download helper
 ├── frontend/index.html     # Drag-and-drop web UI
-├── api_test.py             # Systematic API accuracy test (817 images)
-├── quickstart.py           # Interactive setup wizard
-├── logs/                   # Training history CSVs
+├── api_test.py             # Systematic API accuracy test (756 test images)
+├── logs/                   # Training history CSVs (phase1, phase2)
 ├── results/                # Evaluation results and confusion matrix
 ├── Dockerfile              # Container image
 ├── docker-compose.yml      # Multi-container deployment
