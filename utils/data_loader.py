@@ -298,12 +298,13 @@ class DataLoader:
             encoded_labels: Integer encoded labels
             onehot_labels: One-hot encoded labels
         """
-        # Fit label encoder
-        self.label_encoder.fit(self.class_names)
-        
-        # Transform labels to integers
-        encoded_labels = self.label_encoder.transform(labels)
-        
+        # Encode using config.CLASS_NAMES order (NOT alphabetical sort)
+        # LabelEncoder.fit() sorts alphabetically which breaks model predictions
+        # since the model was trained with config.CLASS_NAMES index order.
+        class_to_idx = {c: i for i, c in enumerate(self.class_names)}
+        encoded_labels = np.array([class_to_idx[l] for l in labels], dtype=np.int32)
+        self.label_encoder.fit(self.class_names)  # keep fitted for inverse_transform
+
         # One-hot encode
         onehot_labels = to_categorical(encoded_labels, num_classes=config.NUM_CLASSES)
         
