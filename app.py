@@ -105,8 +105,8 @@ def predict():
         # Make prediction
         result = clf.predict(filepath)
         
-        # Clean up uploaded file (optional)
-        # filepath.unlink()
+        # Clean up uploaded file
+        filepath.unlink(missing_ok=True)
         
         # Return results
         return jsonify({
@@ -317,7 +317,8 @@ def main():
     app.run(
         host=config.API_HOST,
         port=config.API_PORT,
-        debug=True
+        debug=False,
+        threaded=True
     )
 
 

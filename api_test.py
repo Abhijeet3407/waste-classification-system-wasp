@@ -45,7 +45,7 @@ def predict_via_api(host: str, img_bytes: bytes, idx: int):
         resp = requests.post(
             f"{host}/api/predict",
             files={'image': (f'test_{idx:04d}.jpg', img_bytes, 'image/jpeg')},
-            timeout=30
+            timeout=60
         )
         if resp.status_code == 200:
             return resp.json()
