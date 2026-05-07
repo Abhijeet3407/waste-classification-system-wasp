@@ -94,7 +94,7 @@ def run_tests(host: str, output_path: Path):
         pred        = response.get('prediction', {})
         pred_label  = pred.get('class', 'unknown')
         confidence  = pred.get('confidence', 0.0)
-        resp_time   = response.get('inference_time_ms', 0)
+        resp_time   = 0  # api/predict does not return inference_time_ms
 
         is_correct = (pred_label == true_label)
         if is_correct:
